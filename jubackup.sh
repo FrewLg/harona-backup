@@ -114,6 +114,19 @@ echo "Copying backup files to the local computer performed successfully! at  $(d
 ###################################Email all tasks has been done #################
 echo "Email sent at   $(date +'%d-%m-%Y %H:%M:%S')" >> "$logfile" 
 ##################################### end Emailing ############### email.txt####################
+cd
+./gdrive upload --parent 1yisWF4bok0GQpqGXWUobTFakNW0mY0Iv /var/www/harona-backup/resources/*
+./gdrive upload --parent --recursive 1yisWF4bok0GQpqGXWUobTFakNW0mY0Iv  /var/www/harona-backup/database/*
+
+#For details
+#https://medium.com/geekculture/how-to-upload-file-to-google-drive-from-linux-command-line-69668fbe4937
+#wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_386.tar.gz
+#tar -xvf gdrive_2.1.1_linux_386.tar.gz
+#./gdrive about
+#crontab -e
+#30 11,18 * * *   /var/www/harona-backup/jubackup.sh
+
+
 rm -r resource/*
 rm -r /var/www/harona/resource/*
 rm -r /var/www/harona/docs/*
